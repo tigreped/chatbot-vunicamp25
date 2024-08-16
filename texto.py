@@ -1,6 +1,9 @@
 import requests
 from bs4 import BeautifulSoup
 
+# Ao executar este script com python texto.py o link do edital será visitado com requests
+# e o conteúdo HTML da página será salvo como texto corrente em uma única linha em um txt para posterior processamento
+
 # URL da resolução
 url = "https://www.pg.unicamp.br/norma/31879/0"
 
@@ -29,4 +32,3 @@ text = ' '.join(chunk for chunk in chunks if chunk)
 # Salvando o texto extraído em um arquivo
 with open("resolucao_unicamp_2025_v2.txt", "w", encoding="utf-8") as file:
     file.write(text)
-

@@ -7,6 +7,8 @@ from chatgroqvu2025 import FAISSIndexer, chat_interaction
 from dotenv import load_dotenv
 from groq import Groq
 
+# Script utilizado para realizar a interação com Streamlit para a interface gráfica
+
 # LLM utilizada para geração de texto
 default_model = "llama3-70b-8192"
 
@@ -18,10 +20,12 @@ api_key = os.getenv('GROQ_API_KEY')
 # Instanciação da classe FAISSIndexer
 indexer = FAISSIndexer()
 
+# Nome do arquivo produzido pelo script texto.py
 file_path = 'resolucao_unicamp_2025_v2.txt'
 faiss_index_path = 'resolucao_unicamp_2025.faiss'
 
-# Verifica se o conteúdo de contexto já está indexado
+# Verifica se o conteúdo de contexto já está indexado. Se já tiver executado anteriormente, não precisa reprocessar o texto,
+# Basta carregar em memória o índice persistido no disco em um arquivo .faiss
 if os.path.exists(faiss_index_path):
     try:
         indexer.index = faiss.read_index(faiss_index_path)
@@ -54,11 +58,12 @@ def chat_interaction(api_key, relevant_sections, question, model_provided=defaul
         ],
         model=model_provided
     )
+
 # Interface Streamlit
 st.title("Chatbot do Vestibular UNICAMP 2025 (Resolução GR-029/2024)")
 st.write("Estou aqui para responder perguntas a respeito do processo seletivo de Vestibular UNICAMP 2025. Em que posso ajudar?")
 
-# Inicializa o histórico de conversa na sessão do Streamlit
+# Inicializa o histórico de conversa na sessão do Streamlit para permitir interação com as perguntas anteriores realizadas ao longo da conversa
 if 'chat_history' not in st.session_state:
     st.session_state.chat_history = []
 
