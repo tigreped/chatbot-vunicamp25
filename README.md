@@ -34,6 +34,24 @@ Para testar o projeto ao vivo, basta acessar [clicando aqui](https://chatbot-vun
   streamlit run app.py
   ```
 
+## Dados de teste
+
+Ao inicializar o chat no Streamlit localmente ou na nuvem, realize interações passando perguntas para a aplicação, como por exemplo:
+
+1. Quais os cursos disponíveis na área de Humanas?
+2. Quais os cursos disponíveis na área de Exatas?
+3. Quais desse cursos são considerados da área de Tecnologia da Informação?
+4. Como faço para me inscrever? Quais as taxas e datas mais importantes?
+5. Explique o que é o PAAIS.
+
+Como o chat possui uma memória do histórico da conversa, é possível realizar questionamentos sobre a própria conversa, por exemplo:
+
+1. Faça um resumo das respostas dadas até o momento ao Usuário
+2. Quantos cursos foram listados até o momento?
+3. Quantas perguntas foram feitas até o momento?
+
+É possível verificar que a resposta a esse tipo de perguntas é bastante satisfatória, com respostas completas e coerentes, principalmente no tocante ao desenvolvimento de uma sequência de trocas de mensagens.
+
 ## Licensa
 
   O projeto é gratuito e livre e está licenciado sob GNU/GPL-3.
